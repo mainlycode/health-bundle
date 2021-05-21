@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HealthControllerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_returns_a_200_ok()
     {
         $controller = new HealthController();

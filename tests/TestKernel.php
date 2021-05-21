@@ -23,7 +23,7 @@ class TestKernel extends Kernel
     protected function configureContainer(ContainerConfigurator $c): void
     {
         $c->extension('framework', [
-            'secret' => 'S0ME_SECRET',
+            'secret' => 'My dad\'s not a phone, duh!',
             'test' => true,
         ]);
     }
