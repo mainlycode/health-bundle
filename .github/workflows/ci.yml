@@ -1,0 +1,47 @@
+name: "CI"
+
+on:
+  pull_request: # Note: By default, a workflow only runs when a pull_request's activity type is opened, synchronize, or reopened
+    branches:
+      - "main" # only PRs to main
+  push:
+    branches:
+      - "main" # merge to main assuming main branch is protected
+  schedule:
+    - cron: "37 13 * * 1" # daily at 13:37
+
+jobs:
+  ci:
+    name: "Install dependencies and run tests"
+    runs-on: "ubuntu-20.04"
+
+    strategy:
+      matrix:
+        php-version:
+          # https://www.php.net/supported-versions.php
+          # https://github.com/shivammathur/setup-php#tada-php-support
+          - "7.3"
+          - "7.4"
+          - "8.0"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-version }}"
+          tools: "composer:v2" # installed by default but now explicit
+          coverage: "none"
+        env:
+          fail-fast: true
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --strict --no-interaction --ansi"
+
+      - name: "Install dependencies with Composer"
+        uses: "ramsey/composer-install@v1"
+
+      - name: "Run PHPUnit"
+        run: "vendor/bin/phpunit --testdox"
