@@ -14,7 +14,7 @@ Register the bundle in your application (`config/bundles.php`):
 
 ```php
 return [
-    /** your other bundle */
+    /** your other bundles */
     MainlyCode\HealthBundle\HealthBundle::class => ['all' => true],
 ];
 ```
