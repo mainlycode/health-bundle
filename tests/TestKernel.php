@@ -30,6 +30,6 @@ class TestKernel extends Kernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('../config/routes.yaml');
+        $routes->import('@HealthBundle/config/routing.yaml');
     }
 }
