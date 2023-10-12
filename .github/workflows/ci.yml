@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - "main" # merge to main assuming main branch is protected
+  workflow_dispatch:
   schedule:
     - cron: "37 13 * * 1" # daily at 13:37
 
