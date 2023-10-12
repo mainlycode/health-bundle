@@ -23,7 +23,9 @@ jobs:
           # https://github.com/shivammathur/setup-php#tada-php-support
           - "8.1"
           - "8.2"
-
+        dependencies:
+          - "lowest"
+          - "highest"
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v4"
@@ -42,6 +44,8 @@ jobs:
 
       - name: "Install dependencies with Composer"
         uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Run PHPUnit"
         run: "vendor/bin/phpunit --testdox"
