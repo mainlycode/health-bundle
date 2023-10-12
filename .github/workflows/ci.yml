@@ -14,8 +14,7 @@ on:
 jobs:
   ci:
     name: "Install dependencies and run tests"
-    runs-on: "ubuntu-20.04"
-
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         php-version:
@@ -26,10 +25,11 @@ jobs:
         dependencies:
           - "lowest"
           - "highest"
+        os:
+          - "ubuntu-latest"
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v4"
-
       - name: "Install PHP"
         uses: "shivammathur/setup-php@v2"
         with:
@@ -38,7 +38,6 @@ jobs:
           coverage: "none"
         env:
           fail-fast: true
-
       - name: "Validate composer.json and composer.lock"
         run: "composer validate --strict --no-interaction --ansi"
 
@@ -46,6 +45,5 @@ jobs:
         uses: "ramsey/composer-install@v2"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
-
       - name: "Run PHPUnit"
         run: "vendor/bin/phpunit --testdox"
