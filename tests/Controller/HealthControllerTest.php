@@ -7,10 +7,10 @@ namespace MainlyCode\HealthBundle\Controller;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class HealthControllerTest extends TestCase
+final class HealthControllerTest extends TestCase
 {
     /** @test */
-    public function it_returns_a_200_ok()
+    public function it_returns_a_200_ok(): void
     {
         $controller = new HealthController();
 

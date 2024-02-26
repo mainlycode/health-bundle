@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MainlyCode\HealthBundle;
 
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -8,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-class TestKernel extends Kernel
+final class TestKernel extends Kernel
 {
     use MicroKernelTrait;
 

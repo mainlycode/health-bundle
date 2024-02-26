@@ -9,15 +9,15 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 /** @group functional */
-class HealthControllerFunctionalTest extends WebTestCase
+final class HealthControllerFunctionalTest extends WebTestCase
 {
     /** @test */
-    public function it_returns_a_200_ok()
+    public function it_returns_a_200_ok(): void
     {
         /** @var KernelBrowser $client */
         $client = static::createClient();
 
-        $client->request('GET','/health');
+        $client->request('GET', '/health');
 
         /** @var Response */
         $response = $client->getResponse();
