@@ -20,7 +20,6 @@ jobs:
         php-version:
           # https://www.php.net/supported-versions.php
           # https://github.com/shivammathur/setup-php#tada-php-support
-          - "8.1"
           - "8.2"
           - "8.3"
         dependencies:
