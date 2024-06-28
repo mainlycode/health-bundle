@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace MainlyCode\HealthBundle\Controller;
 
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-/** @group functional */
+#[Group('functional')]
 final class HealthControllerFunctionalTest extends WebTestCase
 {
-    /** @test */
+    #[Test]
     public function it_returns_a_200_ok(): void
     {
         /** @var KernelBrowser $client */
