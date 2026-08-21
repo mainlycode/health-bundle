@@ -1,6 +1,16 @@
 # mainlycode/health-bundle
 
+[![CI](https://github.com/mainlycode/health-bundle/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mainlycode/health-bundle/actions/workflows/ci.yml)
+
 Symfony bundle for adding a /health endpoint to your application
+
+## Requirements
+
+This bundle supports the PHP and Symfony versions that are officially supported
+by their maintainers:
+
+- [PHP](https://www.php.net/supported-versions.php) 8.2, 8.3, 8.4 and 8.5
+- [Symfony](https://symfony.com/releases) 6.4 LTS, 7.4 LTS and 8.1
 
 ## Installation
 
@@ -35,4 +45,14 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 return function (RoutingConfigurator $routes) {
     $routes->import('@HealthBundle/config/routing.yaml');
 };
+```
+
+## Contributing
+
+```
+make dependencies   # install the Composer dependencies
+make test           # run the test suite
+make coverage       # report the test coverage
+make phpstan        # run static analysis
+make qa             # run all quality assurance checks
 ```
