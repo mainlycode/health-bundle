@@ -7,6 +7,7 @@ namespace MainlyCode\HealthBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
@@ -14,12 +15,11 @@ final class TestKernel extends Kernel
 {
     use MicroKernelTrait;
 
-    public function registerBundles(): array
+    /** @return iterable<BundleInterface> */
+    public function registerBundles(): iterable
     {
-        return [
-            new FrameworkBundle(),
-            new HealthBundle(),
-        ];
+        yield new FrameworkBundle();
+        yield new HealthBundle();
     }
 
     protected function configureContainer(ContainerConfigurator $c): void
