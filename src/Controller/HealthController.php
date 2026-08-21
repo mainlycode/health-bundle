@@ -6,7 +6,7 @@ namespace MainlyCode\HealthBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
-class HealthController
+final class HealthController
 {
     public function __invoke(): Response
     {

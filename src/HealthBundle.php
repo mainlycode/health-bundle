@@ -6,7 +6,7 @@ namespace MainlyCode\HealthBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class HealthBundle extends Bundle
+final class HealthBundle extends Bundle
 {
     /** @see https://symfony.com/doc/current/bundles/best_practices.html#directory-structure */
     public function getPath(): string
